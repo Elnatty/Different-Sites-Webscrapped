@@ -1,0 +1,13 @@
+---> for example.., after reading content with BeautifulSoup:
+soup = BeautifulSoup(content, "html.parser")
+---> you can search for specific tag, ie: <div></div> --> soup.div, <p></p> --> soup.p, <section></section> --> soup.section etc...
+---> then you can also, soup.div.contents. --> to fetch a "list" of contents or tags that are inside the div tag.
+
+---> How to Access Siblings:
+    since soup.div.contents is a list... you can; tree = soup.div.contents, print(tree[0].next_sibling) --> to access next table row.
+    you can also use the "previous_sibling", "next_siblings" and "previous_siblings", parents and descendants, children.
+
+    "next_siblings" and "previous_siblings": returns a generator variable type that we can iterate through, so convert to a list and loop through.
+    ie:
+        trs = tbody.contents
+        print(list(trs[0].next_siblings))
